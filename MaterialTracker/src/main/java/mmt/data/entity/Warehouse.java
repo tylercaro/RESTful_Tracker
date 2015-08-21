@@ -20,7 +20,6 @@ public class Warehouse {
 	private String warehouseName;
 	
 	@OneToMany(fetch=FetchType.EAGER, cascade={CascadeType.ALL})
-	@JoinColumn
 	private List<Shipment> shipments;
 
 	
@@ -51,11 +50,20 @@ public class Warehouse {
 
 	@Override
 	public String toString() {
-		String result="Warehouse [warehouseName=" + warehouseName + ", shipments=";
-		for(Shipment s : shipments){
-			result+= " " + s.getItemType() + " "+ s.getItemDescription();
+		String result="{\"warehouseName\":\"" + warehouseName + "\", \"shipments\":[";
+		Shipment s= new Shipment();
+		
+		for(int index=0; index< shipments.size(); index++){
+			s=shipments.get(index);
+			if(index==0){
+				result+=s.toString();
+			}
+			else{
+				result+=","+s.toString();
+			}
 		}
-		result+="]";
+		result+="]}";
+		System.out.println(result);
 		return result;
 	}
 	

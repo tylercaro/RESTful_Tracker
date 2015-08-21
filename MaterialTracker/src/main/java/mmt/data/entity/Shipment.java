@@ -17,6 +17,7 @@ public class Shipment {
 	private String destination;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn
 	private Warehouse warehouse;
 
 
@@ -69,4 +70,13 @@ public class Shipment {
 		this.warehouse = warehouse;
 	}
 
+	@Override
+	public String toString() {
+		String result="{\"ShipmentId\":\"" + shipmentId + "\", \"itemType\":\"" + itemType + "\", \"itemDescription\":\"" + itemDescription
+				+ "\", \"itemCount\":\"" + itemCount + "\", \"destination\":\"" + destination +  "\"}";
+		
+		return result;
+	}
+
+	
 }

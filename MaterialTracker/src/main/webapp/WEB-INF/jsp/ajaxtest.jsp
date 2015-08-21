@@ -15,14 +15,19 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script>
+<!-- "http://localhost:8081/MaterialTracker/rest/warehouse/all"  $('p').text(data);-->
 	$(function(){
 		$('button').on('click',function(){
 			$.ajax({
 				type : "GET",
-				dataType : "text",
-				url : "http://localhost:8081/MaterialTracker/rest/warehouse/all",
+				dataType : "json",
+				url : "http://localhost:8081/MaterialTracker/do/get/warehouses/all",
 				success : function(data){
-					$('p').text(data);
+					var warehouseOutput="";
+					$.each(data.warehouses, function(i,v){
+						warehouseOutput+=v.warehouseName+ " ";
+						$('p').text(warehouseOutput);
+					})
 				}
 			});
 		});
