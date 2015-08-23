@@ -11,7 +11,6 @@ Experiment using Spring MVC creating a RESTful dynamic webservice.
 - REST
 - AJAX
 - jQuery
-- PL/SQL
 
 ###Shipment add
 `http://localhost:8080/MaterialTracker/do/shipments/request`
