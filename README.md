@@ -5,7 +5,7 @@ Experiment using Spring MVC creating a RESTful dynamic webservice.
 - Oracle 11g 
 - Tomcat 7
 
-###API/Frameworks/Design Patterns Used
+###APIs/Frameworks
 - Hibernate ORM
 - Spring MVC/AOP
 - REST
